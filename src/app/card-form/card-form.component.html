@@ -1,0 +1,3 @@
+<form [formGroup]="cardForm">
+   <app-input [label]="'Name'" [type]="'text'" [control]="$any(cardForm).get('name')"></app-input>
+</form>
