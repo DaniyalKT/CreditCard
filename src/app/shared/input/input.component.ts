@@ -16,7 +16,7 @@ export class InputComponent {
 constructor(){}
 
 showErrors(){
-  return this.control?.touched && this.control?.dirty
+  return this.control?.touched && this.control?.dirty && this.control?.errors
 }
 
 }

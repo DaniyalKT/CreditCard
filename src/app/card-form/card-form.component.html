@@ -1,3 +1,31 @@
-<form [formGroup]="cardForm">
-   <app-input [label]="'Name'" [type]="'text'" [control]="$any(cardForm).get('name')"></app-input>
-</form>
+<div class="columns">
+   <div class="column">
+      <app-card
+       [name]="$any(f)?.name.value"
+       [expiration]="$any(f)?.expiration.value"
+       [cardNumber]="$any(f)?.cardNumber.value"></app-card>
+   </div>
+   <div class="column">
+      <form [formGroup]="cardForm" (ngSubmit)="submitForm()">
+         <app-input [label]="'Name'" [type]="'text'" [placeholder]="'please enter your name'"
+            [control]="$any(cardForm).get('name')"></app-input>
+         <app-input [label]="'Card Number'" [type]="'number'" [placeholder]="'please enter your card number '"
+            [control]="$any(cardForm).get('cardNumber')"></app-input>
+
+         <div class="columns">
+            <div class="column">
+               <app-input [label]="'Expiration'" [type]="'date'" [placeholder]="'please enter your expiration '"
+                  [control]="$any(cardForm).get('expiration')"></app-input>
+            </div>
+
+            <div class="column">
+               <app-input [label]="'Security Code'" [type]="'number'" [placeholder]="'please enter your securityCode '"
+                  [control]="$any(cardForm).get('securityCode')"></app-input>
+            </div>
+         </div>
+
+         <button class="button is-info m-4">Submit</button>
+         <button class="button is-primary m-4" (click)="onResetForms()">Reset</button>
+      </form>
+   </div>
+</div>
